@@ -1,0 +1,52 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { OrderSummary } from "./OrderSummary.jsx";
+import { PaymentSummary } from "./PaymentSummary.jsx";
+import { CheckoutHeader } from "./CheckoutHeader.jsx";
+import "./CheckoutHeader.css";
+import "./CheckoutPage.css";
+
+const BACKEND_DELIVERY_OPTIONS_URL =
+  "/api/delivery-options?expand=estimatedDeliveryTime";
+
+const BACKEND_PAYMENT_SUMMARY_URL = "/api/payment-summary";
+
+export function CheckoutPage({ cart }) {
+  const [deliveryOptions, setDeliveryOptions] = useState([]);
+  const [paymentSummary, setPaymentSummary] = useState(null);
+
+  useEffect(() => {
+    axios.get(BACKEND_DELIVERY_OPTIONS_URL).then((response) => {
+      setDeliveryOptions(response.data);
+    });
+
+    axios.get(BACKEND_PAYMENT_SUMMARY_URL).then((response) => {
+      setPaymentSummary(response.data);
+    });
+
+    // const fetchData = async () => {
+    //   const response = await axios.get(BACKEND_DELIVERY_OPTIONS_URL);
+    //   setDeliveryOptions(response.data);
+    // };
+
+    // fetchData();
+  }, []);
+
+  return (
+    <>
+      <title>Checkout</title>
+
+      <CheckoutHeader paymentSummary={paymentSummary} />
+
+      <div className="checkout-page">
+        <div className="page-title">Review your order</div>
+
+        <div className="checkout-grid">
+          <OrderSummary cart={cart} deliveryOptions={deliveryOptions} />
+
+          <PaymentSummary paymentSummary={paymentSummary} />
+        </div>
+      </div>
+    </>
+  );
+}

@@ -2,8 +2,8 @@ import axios from "axios";
 import dayjs from "dayjs";
 import { useState, useEffect, Fragment } from "react";
 
-import { Header } from "../components/Header.jsx";
-import { formatCurrency } from "../utils/money.jsx";
+import { Header } from "../../components/Header.jsx";
+import { formatCurrency } from "../../utils/money.jsx";
 import "./OrdersPage.css";
 
 const BACKEND_ORDERS_URL = "/api/orders?expand=products";
