@@ -1,5 +1,5 @@
 import { Header } from "../components/Header.jsx";
-import { formatCurrency } from "../components/formatCurrency.jsx";
+import { formatCurrency } from "../utils/formatCurrency.jsx";
 import { products } from "../../starting-code/data/products.js";
 
 import "./HomePage.css";
