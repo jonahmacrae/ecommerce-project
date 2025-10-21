@@ -4,8 +4,8 @@ import { Header } from "../components/Header.jsx";
 import { formatCurrency } from "../utils/formatCurrency.jsx";
 import "./HomePage.css";
 
-const BACKEND_PRODUCTS_URL = "http://localhost:3000/api/products";
-const BACKEND_CART_ITEMS_URL = "http://localhost:3000/api/cart-items";
+const BACKEND_PRODUCTS_URL = "/api/products";
+const BACKEND_CART_ITEMS_URL = "/api/cart-items";
 
 export function HomePage() {
   const [products, setProducts] = useState([]);
