@@ -7,7 +7,7 @@ import { OrdersPage } from "./pages/OrdersPage.jsx";
 import { TrackingPage } from "./pages/TrackingPage.jsx";
 import "./App.css";
 
-const BACKEND_CART_ITEMS_URL = "/api/cart-items";
+const BACKEND_CART_ITEMS_URL = "/api/cart-items?expand=product";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -16,7 +16,7 @@ function App() {
     axios.get(BACKEND_CART_ITEMS_URL).then((response) => {
       setCart(response.data);
     });
-  });
+  }, []);
 
   return (
     <Routes>

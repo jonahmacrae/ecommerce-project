@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Header } from "../components/Header.jsx";
-import { formatCurrency } from "../utils/formatCurrency.jsx";
+import { formatCurrency } from "../utils/money.jsx";
 import "./HomePage.css";
 
 const BACKEND_PRODUCTS_URL = "/api/products";
