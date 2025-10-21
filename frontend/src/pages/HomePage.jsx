@@ -4,7 +4,15 @@ import { products } from "../../starting-code/data/products.js";
 
 import "./HomePage.css";
 
+const BACKEND_PRODUCTS_URL = 'http://localhost:3000/api/products';
+
 export function HomePage() {
+  fetch(BACKEND_PRODUCTS_URL).then((response) => {
+    return response.json()
+    }).then((data) => {
+      console.log(data);
+  });
+
   return (
     <>
       <title>Ecommerce Project</title>
