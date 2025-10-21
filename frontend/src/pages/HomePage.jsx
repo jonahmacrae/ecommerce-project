@@ -1,17 +1,17 @@
+import axios from 'axios';
 import { Header } from "../components/Header.jsx";
 import { formatCurrency } from "../utils/formatCurrency.jsx";
 import { products } from "../../starting-code/data/products.js";
 
 import "./HomePage.css";
 
-const BACKEND_PRODUCTS_URL = 'http://localhost:3000/api/products';
+const BACKEND_PRODUCTS_URL = "http://localhost:3000/api/products";
 
 export function HomePage() {
-  fetch(BACKEND_PRODUCTS_URL).then((response) => {
-    return response.json()
-    }).then((data) => {
-      console.log(data);
-  });
+  axios.get(BACKEND_PRODUCTS_URL)
+    .then((response) => {
+      console.log(response.data);
+    });
 
   return (
     <>
