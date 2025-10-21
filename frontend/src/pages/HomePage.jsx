@@ -5,19 +5,13 @@ import { formatCurrency } from "../utils/formatCurrency.jsx";
 import "./HomePage.css";
 
 const BACKEND_PRODUCTS_URL = "/api/products";
-const BACKEND_CART_ITEMS_URL = "/api/cart-items";
 
-export function HomePage() {
+export function HomePage({ cart }) {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     axios.get(BACKEND_PRODUCTS_URL).then((response) => {
       setProducts(response.data);
-    });
-
-    axios.get(BACKEND_CART_ITEMS_URL).then((response) => {
-      setCart(response.data);
     });
   }, []);
 
