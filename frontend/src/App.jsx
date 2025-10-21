@@ -13,9 +13,12 @@ function App() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    axios.get(BACKEND_CART_ITEMS_URL).then((response) => {
+    const fetchAppData = async () => {
+      const response = await axios.get(BACKEND_CART_ITEMS_URL);
       setCart(response.data);
-    });
+    }
+
+    fetchAppData();
   }, []);
 
   return (
