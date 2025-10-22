@@ -1,6 +1,13 @@
 # eCommerce Project
 
-React eCommerce application with full-stack integration.
+A training project for building a more advanced React eCommerce application with full-stack integration. This builds on the fundamentals from my previous chatbot project and introduces more complex concepts like routing, API integration, and state management.
+
+## Getting Started
+
+1. Clone the repository to your local machine
+2. Navigate to the `backend` folder and run `npm run dev`
+3. Navigate to the `frontend` folder and run `npm run dev`
+4. Open your browser to `http://localhost:5173` to view the project
 
 ## Features
 
