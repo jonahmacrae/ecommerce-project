@@ -21,7 +21,15 @@ export function CartItemDetails({ cartItem, loadCart }) {
     } else {
       setIsQuantityUpdating(true);
     }
-  }
+  };
+
+  const quantityKeyPressed = (e) => {
+    if (e.key === "Enter") {
+      changeUpdateInput();
+    } else if (e.key === "Escape") {
+      setIsQuantityUpdating(false);
+    }
+  };
 
   return (
     <>
@@ -36,7 +44,13 @@ export function CartItemDetails({ cartItem, loadCart }) {
           <span>
             Quantity:
             {isQuantityUpdating ? (
-              <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)} className="quantity-update-input" />
+              <input
+                type="text"
+                value={quantity}
+                onKeyDown={quantityKeyPressed}
+                onChange={(e) => setQuantity(e.target.value)}
+                className="quantity-update-input"
+              />
             ) : (
               <span className="quantity-label">{cartItem.quantity}</span>
             )}
