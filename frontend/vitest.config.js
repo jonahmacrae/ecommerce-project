@@ -8,4 +8,7 @@ export default defineConfig({
     globals: true,
     setupFiles: "./setupTests.js",
   },
+  esbuild: {
+    jsx: "automatic",
+  },
 });
