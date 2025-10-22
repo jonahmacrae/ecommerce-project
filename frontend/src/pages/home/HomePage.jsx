@@ -1,12 +1,11 @@
 import axios from "axios";
-import { useSearchParams,  } from "react-router";
+import { useSearchParams } from "react-router";
 import { useEffect, useState } from "react";
 import { Header } from "../../components/Header.jsx";
 import { ProductsGrid } from "./ProductsGrid.jsx";
 import "./HomePage.css";
 
-const BACKEND_BASE_PATH = "http://localhost:5173/";
-const BACKEND_PRODUCTS_PATH = "/api/products";
+const BACKEND_PRODUCTS_URL = "/api/products";
 
 export function HomePage({ cart, loadCart }) {
   const [searchParams] = useSearchParams();
@@ -16,11 +15,9 @@ export function HomePage({ cart, loadCart }) {
 
   useEffect(() => {
     const fetchHomeData = async () => {
-      const url = new URL(BACKEND_PRODUCTS_PATH, BACKEND_BASE_PATH);
-      if (search) {
-        url.searchParams.set('search', search);
-      }
-      const response = await axios.get(url.pathname + url.search);
+      const url = search ? `${BACKEND_PRODUCTS_URL}?search=${search}` : BACKEND_PRODUCTS_URL;
+      
+      const response = await axios.get(url);
       setProducts(response.data);
     };
 
