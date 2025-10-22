@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { formatCurrency } from "../../utils/money.jsx";
+import { formatCurrency } from "../../utils/money.js";
 
 export function OrderHeader({ order }) {
   return (

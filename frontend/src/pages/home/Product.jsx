@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { formatCurrency } from "../../utils/money.jsx";
+import { formatCurrency } from "../../utils/money.js";
 
 const BACKEND_CART_ITEMS_URL = "/api/cart-items";
 

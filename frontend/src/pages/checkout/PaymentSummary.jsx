@@ -1,6 +1,6 @@
 import axios from "axios";
 import {useNavigate} from "react-router";
-import { formatCurrency } from "../../utils/money.jsx"
+import { formatCurrency } from "../../utils/money.js"
 
 const BACKEND_ORDERS_URL = "/api/orders";
 const NAVIGATE_ORDERS_URL = "/orders";
