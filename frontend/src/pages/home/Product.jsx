@@ -6,6 +6,7 @@ const BACKEND_CART_ITEMS_URL = "/api/cart-items";
 
 export function Product({ product, loadCart }) {
   const [quantity, setQuantity] = useState(1);
+  const [showAdded, setShowAdded] = useState(false);
 
   const addToCart = async () => {
     await axios.post(BACKEND_CART_ITEMS_URL, {
@@ -14,6 +15,8 @@ export function Product({ product, loadCart }) {
     });
 
     await loadCart();
+    await setShowAdded(true);
+    await setTimeout(() => setShowAdded(false), 2000);
   };
 
   const selectQuantity = (e) => {
@@ -60,7 +63,7 @@ export function Product({ product, loadCart }) {
 
       <div className="product-spacer"></div>
 
-      <div className="added-to-cart">
+      <div className="added-to-cart" style={{ opacity: showAdded ? 1 : 0 }}>
         <img src="images/icons/checkmark.png" />
         Added
       </div>
