@@ -55,7 +55,7 @@ export function PaymentSummary({ paymentSummary, loadCart }) {
             </div>
           </div>
 
-          <button className="place-order-button button-primary" onClick={createOrder}>
+          <button className="place-order-button button-primary" onClick={paymentSummary.totalCostCents ? createOrder : () => {}}>
             Place your order
           </button>
         </>
